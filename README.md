@@ -17,6 +17,5 @@ The following are brief explanations of each .py module (also provided as #comme
 
 5. kjv_markovizer1.py: This simple module builds its utterance as a Markov chain based on a single starting word from the entire text of the KJV Bible.
 
-6. Testing a git push from mhemenway
 
 
