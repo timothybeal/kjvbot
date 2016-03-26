@@ -2,9 +2,13 @@
 Created on Mar 9, 2016
 
 @author: timothybeal
+
+Initiated by a randomly selected three-word starting phrase, 
+this kjvbot2 builds its utterance as a Markov chain based on 
+the whole text of the KJV and then, if it's <= 135 characters, tweets it to @kjvbot.
+
 '''
 
-#Initiated by a randomly selected three-word starting phrase, this kjvbot2 builds its utterance as a Markov chain based on the whole text of the KJV and then, if it's <= 135 characters, tweets it to @kjvbot.
 
 from collections import defaultdict
 from itertools import tee
