@@ -22,6 +22,21 @@ def nwise(iterable, n=2):
                 next(iter_)
         return zip(*iterables)
 
+def build_sentence(seed, sent_tokens):
+
+    token = ''
+    
+    while token not in set('.?!'):
+        last_tokens = tuple(seed[-3:])
+        new_token = choice(sent_tokens[last_tokens])
+        seed.append(new_token)
+        token = new_token
+    
+    sentence = ' '.join(seed)
+    sentence = re.sub(r'\s+([.,?!])',r'\1', sentence)
+        
+    return sentence
+
 def markovize(word1, word2, word3, fileid, char_limit=None):   
     
     with open(fileid) as f:
@@ -30,7 +45,7 @@ def markovize(word1, word2, word3, fileid, char_limit=None):
     sentences = sent_tokenize(text)
     sent_tokens = defaultdict(list)
     for sentence in sentences:
-        tokens = re.findall(r'\w+|[.,?!]', sentence)
+        tokens = re.findall(r"[\w']+|[.,?!]", sentence)
         nwise_ = nwise(tokens, n=4)
         if nwise_:
             for token1, token2, token3, token4 in nwise_:
@@ -39,27 +54,18 @@ def markovize(word1, word2, word3, fileid, char_limit=None):
     too_long = True
     
     while too_long:
-        token = ''
-        spacey_utterance = ''
         sentence = [word1, word2, word3]
-        
-        while token not in set('.?!'):
-            last_tokens = tuple(sentence[-3:])
-            new_token = choice(sent_tokens[last_tokens])
-            sentence.append(new_token)
-            token = new_token
-        
-        spacey_utterance = ' '.join(sentence)
-        spacey_utterance = re.sub(r'\s+([.,!/])',r'\1', spacey_utterance)
-        len_utterance = len(spacey_utterance)
+    
+        utterance = build_sentence(sentence, sent_tokens)
+        len_utterance = len(utterance)
          
         if char_limit != None and len_utterance > char_limit:
             too_long = True
         else:
             too_long = False
             
-    return spacey_utterance
-            
+    return utterance
+         
 def post_tweet(key,secret,tweet):
 
     auth = tweepy.OAuthHandler(key, secret)
