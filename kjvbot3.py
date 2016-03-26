@@ -22,7 +22,7 @@ def nwise(iterable, n=2):
                 next(iter_)
         return zip(*iterables)
 
-def markovize(word1, word2, word3, fileid):   
+def markovize(word1, word2, word3, fileid, char_limit=None):   
     
     with open(fileid) as f:
         text = f.read()
@@ -36,19 +36,28 @@ def markovize(word1, word2, word3, fileid):
             for token1, token2, token3, token4 in nwise_:
                 sent_tokens[token1, token2, token3].append(token4)
     
-    token = ''
+    too_long = True
     
-    sentence = [word1, word2, word3]
-    
-    while token not in set('.?!'):
-        last_tokens = tuple(sentence[-3:])
-        new_token = choice(sent_tokens[last_tokens])
-        sentence.append(new_token)
-        token = new_token
-    
-    spacey_utterance = ' '.join(sentence)
-    spacey_utterance = re.sub(r'\s+([.,!/])',r'\1', spacey_utterance)
-     
+    while too_long:
+        token = ''
+        spacey_utterance = ''
+        sentence = [word1, word2, word3]
+        
+        while token not in set('.?!'):
+            last_tokens = tuple(sentence[-3:])
+            new_token = choice(sent_tokens[last_tokens])
+            sentence.append(new_token)
+            token = new_token
+        
+        spacey_utterance = ' '.join(sentence)
+        spacey_utterance = re.sub(r'\s+([.,!/])',r'\1', spacey_utterance)
+        len_utterance = len(spacey_utterance)
+         
+        if char_limit != None and len_utterance > char_limit:
+            too_long = True
+        else:
+            too_long = False
+            
     return spacey_utterance
             
 def post_tweet(key,secret,tweet):

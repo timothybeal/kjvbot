@@ -25,12 +25,16 @@ x = [["Woe", "unto", choice(w), "kjv_prophets.txt"],
 
 [word1, word2, word3, fileid] = choice(x)
     
-tweet_len = 150
+# tweet_len = 150
+# 
+# while tweet_len > 140: 
+#     utterance = kjvbot3.markovize(word1, word2, word3, fileid)
+#     tweet = '"' + utterance + '"'
+#     tweet_len = len(tweet)
 
-while tweet_len > 140: 
-    utterance = kjvbot3.markovize(word1, word2, word3, fileid)
-    tweet = '"' + utterance + '"'
-    tweet_len = len(tweet)
+utterance = kjvbot3.markovize(word1, word2, word3, fileid, char_limit=138)
+tweet = '"' + utterance + '"'
+tweet_len = len(tweet)
     
 print(tweet, '\n', tweet_len)
 # kjvbot3.post_tweet(key, secret, tweet)
