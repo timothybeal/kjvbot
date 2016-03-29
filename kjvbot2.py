@@ -4,7 +4,7 @@ Created on Mar 10, 2016
 @author: timothybeal
 '''
 
-#Initiated by a randomly selected three-word starting phrase, this kjvbot.py builds its utterance as a Markov chain based on a selection from the KJV Bible (the prophets, Gospels, Pauline letters, or Revelation) and then, if it is <= 135 characters, tweets it to @kjvbot.
+#Initiated by a randomly selected three-word starting phrase, this kjvbot.py builds its utterance as a Markov chain based on a selection from the KJV Bible (the prophets, Gospels, Pauline letters, or Revelation) and then, if it is <= 140 characters, tweets it to @kjvbot.
 
 from collections import defaultdict
 from itertools import tee
