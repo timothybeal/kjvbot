@@ -66,7 +66,7 @@ def markovize(word1, word2, word3, fileid, char_limit=None):
             
     return utterance
          
-def post_tweet(key,secret,tweet):
+def post_tweet(tweet):
 
     auth = tweepy.OAuthHandler(key, secret)
     auth.set_access_token(key, secret)
