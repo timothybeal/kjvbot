@@ -30,4 +30,4 @@ tweet = '"' + utterance + '"'
 tweet_len = len(tweet)
     
 print(tweet, '\n', tweet_len)
-# kjvbot3.post_tweet(key, secret, tweet)
+# kjvbot3.post_tweet(tweet)
