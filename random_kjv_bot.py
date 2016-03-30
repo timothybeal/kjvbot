@@ -25,9 +25,17 @@ x = [["Woe", "unto", choice(w), "kjv_prophets.txt"],
 
 [word1, word2, word3, fileid] = choice(x)
 
+# we can add hashtag for regional meeting
 utterance = kjvbot3.markovize(word1, word2, word3, fileid, char_limit=138)
 tweet = '"' + utterance + '"'
 tweet_len = len(tweet)
-    
+
+# twitter api keys and secrets, you can get these for your account at apps.twitter.com
+consumer_key = ''
+consumer_secret = ''
+access_key = ''
+access_secret = '' 
+
+# call function to tweet utterance    
 print(tweet, '\n', tweet_len)
-# kjvbot3.post_tweet(tweet)
+# kjvbot3.post_tweet(consumer_key, consumer_secret, access_key, access_secret, tweet)

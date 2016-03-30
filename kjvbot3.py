@@ -66,10 +66,10 @@ def markovize(word1, word2, word3, fileid, char_limit=None):
             
     return utterance
          
-def post_tweet(tweet):
+def post_tweet(consumer_key, consumer_secret, access_key, access_secret, tweet):
 
-    auth = tweepy.OAuthHandler(key, secret)
-    auth.set_access_token(key, secret)
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_key, access_secret)
     api = tweepy.API(auth) 
     api.update_status(tweet)
     
