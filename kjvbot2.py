@@ -33,7 +33,7 @@ def kjvbot(word1, word2, word3, fileid):
     x = [["Woe", "unto", random.choice(w), "kjv_prophets.txt"], ["And", "the", "priest", "kjv.txt"], ["And", "I", random.choice(l), "kjv_revelation.txt"], ["Behold", ",", "I", "kjv_revelation.txt"], ["And", "to", "the", "kjv_revelation.txt"], ["The", "kingdom", "of", "kjv_gospels.txt"], ["Paul", ",", "a", "kjv_paul.txt"]] 
     [word1, word2, word3, fileid] = random.choice(x)
       
-    with open(fileid) as f:
+    with open(fileid, encoding='utf-8') as f:
         text = f.read()
     
     sentences = sent_tokenize(text)
