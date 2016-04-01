@@ -39,7 +39,7 @@ def build_sentence(seed, sent_tokens):
 
 def markovize(word1, word2, word3, fileid, char_limit=None):   
     
-    with open(fileid) as f:
+    with open(fileid, encoding='utf-8') as f:
         text = f.read()
     
     sentences = sent_tokenize(text)
