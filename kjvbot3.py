@@ -3,11 +3,10 @@ Created on Mar 10, 2016
 
 @author: timothybeal and textpotential
 
-Initiated by a randomly selected three-word starting phrase, 
-kjvbot builds its utterance as a Markov chain based on a randomly 
+Builds its utterance as a Markov chain based on a randomly 
 selected series of three start words and a selection from the KJV 
 Bible (prophets, Gospels, or Revelation, or the whole KJV) and then, 
-if it is <= 130 characters, tweets it to @kjvbot.
+if it is <= 130 characters, tweets it to @KJVBot.
 
 '''
 
