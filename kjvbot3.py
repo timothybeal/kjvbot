@@ -4,13 +4,14 @@ Created on Mar 10, 2016
 @author: timothybeal
 
 Initiated by a randomly selected three-word starting phrase, 
-this kjvbot.py builds its utterance as a Markov chain based on a selection 
-from the KJV Bible (the prophets, Gospels, Pauline letters, or Revelation) and then, 
-if it is <= 135 characters, tweets it to @kjvbot.
+kjvbot builds its utterance as a Markov chain based on a randomly 
+selected series of three start words and a selection from the KJV 
+Bible (prophets, Gospels, or Revelation, or the whole KJV) and then, 
+if it is <= 130 characters, tweets it to @kjvbot.
 
 '''
 
-import kjvbot3
+import markovbot
 from random import choice
 
 w = ["the", "them", "thee", "him"]
@@ -20,11 +21,12 @@ x = [["Woe", "unto", choice(w), "kjv_prophets.txt"],
      ["And", "I", choice(l), "kjv_revelation.txt"], 
      ["Behold", ",", "I", "kjv_revelation.txt"], 
      ["And", "to", "the", "kjv_revelation.txt"], 
-     ["And", "he", "answered", "kjv_gospels.txt"]]
+     ["And", "he", "answered", "kjv_gospels.txt"],
+     ["In", "the", "beginning", "kjv.txt"]]
 
 [word1, word2, word3, fileid] = choice(x)
 
-utterance = kjvbot3.markovize(word1, word2, word3, fileid, char_limit=138)
+utterance = markovbot.markovize(word1, word2, word3, fileid, char_limit=138)
 tweet = '"' + utterance + '"'
 tweet_len = len(tweet)
 
@@ -36,4 +38,4 @@ access_secret = ''
 
 # call function to tweet utterance    
 print(tweet, '\n', tweet_len)
-# kjvbot3.post_tweet(consumer_key, consumer_secret, access_key, access_secret, tweet)
+# markovbot.post_tweet(consumer_key, consumer_secret, access_key, access_secret, tweet)
