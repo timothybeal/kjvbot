@@ -1,9 +1,9 @@
 '''
 Created on Mar 10, 2016
 
-@author: timothybeal
+@author: timothybeal and textpotential
 
-The functions used to create a markov chain and tweet if desired.
+The functions used to create a markov chain utterance and tweet if desired.
 '''
 
 from collections import defaultdict
