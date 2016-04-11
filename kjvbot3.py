@@ -1,7 +1,7 @@
 '''
 Created on Mar 10, 2016
 
-@author: timothybeal
+@author: timothybeal and textpotential
 
 Initiated by a randomly selected three-word starting phrase, 
 kjvbot builds its utterance as a Markov chain based on a randomly 
