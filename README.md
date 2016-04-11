@@ -7,9 +7,9 @@ Kjvbot3.py is an example of how the module markovbot.py could be used: it genera
 
 Anybot.py provides a generic module that, working from markovbot.py, enables you to generate and tweet Markov chain utterances based on any three-word start phrase within any text.
 
-The markovizer programs simply autogenerates and prints utterances. Version 1 begins with a single start word and the whole KJV Bible, whereas version 2 begins with three start words and a fileid specified by the user.
+The older markovizer programs were early attempts to generate Markov chains based on particular texts. They simply autogenerate and print utterances (no tweeting). Version 1 begins with a single start word and the whole KJV Bible, whereas version 2 begins with a three-word start phrase and a fileid specified by the user.
 
-Kjvbot_beta.py is where we began. Built from code behind @TheHigherDead, this module generates biblical mashups as sequences of randomly selected formal elements from the prophets and Psalms and tweets them to @KJVBot.
+Kjvbot_beta.py is where we began. Built from the code behind @TheHigherDead, this module generates biblical mashups as sequences of randomly selected formal elements from the prophets and Psalms and then tweets them to @KJVBot.
 
 
 
