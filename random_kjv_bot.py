@@ -20,8 +20,7 @@ x = [["Woe", "unto", choice(w), "kjv_prophets.txt"],
      ["And", "I", choice(l), "kjv_revelation.txt"], 
      ["Behold", ",", "I", "kjv_revelation.txt"], 
      ["And", "to", "the", "kjv_revelation.txt"], 
-     ["The", "kingdom", "of", "kjv_gospels.txt"], 
-     ["Paul", ",", "a", "kjv_paul.txt"]] 
+     ["And", "he", "answered", "kjv_gospels.txt"]]
 
 [word1, word2, word3, fileid] = choice(x)
 
