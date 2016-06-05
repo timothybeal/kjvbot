@@ -23,7 +23,7 @@ x = [["Woe unto " + choice(w), "kjv_prophets.txt"],
      ["And he answered", "kjv_gospels.txt"],
      ["In the beginning", "kjv.txt"]]
 
-[words, fileid] = choice(x)
+words, fileid = choice(x)
 
 markovizer = Markovizer(fileid)
 utterance = markovizer.create_utterance(words, char_limit=138)
