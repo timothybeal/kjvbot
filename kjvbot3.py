@@ -15,17 +15,18 @@ from random import choice
 
 w = ["the", "them", "thee", "him"]
 l = ["looked", "saw", "beheld", "heard", "turned"]
-x = [["Woe", "unto", choice(w), "kjv_prophets.txt"], 
-     ["And", "the", "priest", "kjv.txt"], 
-     ["And", "I", choice(l), "kjv_revelation.txt"], 
-     ["Behold", ",", "I", "kjv_revelation.txt"], 
-     ["And", "to", "the", "kjv_revelation.txt"], 
-     ["And", "he", "answered", "kjv_gospels.txt"],
-     ["In", "the", "beginning", "kjv.txt"]]
+x = [["Woe unto " + choice(w), "kjv_prophets.txt"], 
+     ["And the priest", "kjv.txt"], 
+     ["And I " + choice(l), "kjv_revelation.txt"], 
+     ["Behold, I", "kjv_revelation.txt"], 
+     ["And to the", "kjv_revelation.txt"], 
+     ["And he answered", "kjv_gospels.txt"],
+     ["In the beginning", "kjv.txt"]]
 
-[word1, word2, word3, fileid] = choice(x)
+[words, fileid] = choice(x)
 
-utterance = markovbot.markovize(word1, word2, word3, fileid, char_limit=138)
+markovizer = Markovizer(fileid)
+utterance = markovizer.create_utterance(words, char_limit=138)
 tweet = '"' + utterance + '"'
 tweet_len = len(tweet)
 
@@ -37,4 +38,4 @@ access_secret = ''
 
 # call function to tweet utterance    
 print(tweet, '\n', tweet_len)
-# markovbot.post_tweet(consumer_key, consumer_secret, access_key, access_secret, tweet)
+# markovizer.post_tweet(consumer_key, consumer_secret, access_key, access_secret)
