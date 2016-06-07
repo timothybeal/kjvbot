@@ -8,7 +8,6 @@ based on a three-word starting phrase and corpus (fileid) set by the user.
 
 '''
 
-import your mom
 from collections import defaultdict
 from itertools import tee
 from random import choice
