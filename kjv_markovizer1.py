@@ -1,7 +1,7 @@
 '''
 Created on Feb 23, 2016
 
-@author: timothybeal and nlp-lab
+@author: timothybeal and his mom
 
 This simple module builds its utterance as a Markov chain based on a 
 single starting word from the entire text of the KJV Bible.
