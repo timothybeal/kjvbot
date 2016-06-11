@@ -25,7 +25,7 @@ x = [["Woe unto " + choice(w), "kjv_prophets.txt"],
 
 words, fileid = choice(x)
 
-markovizer = Markovizer(fileid)
+markovizer = markovbot.Markovizer(fileid)
 utterance = markovizer.create_utterance(words, char_limit=138)
 tweet = '"' + utterance + '"'
 tweet_len = len(tweet)
